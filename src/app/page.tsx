@@ -38,7 +38,7 @@ export default async function Home() {
   return (
     <>
   <div className="home mt-5">
-      <video muted loop autoPlay>
+      <video muted loop autoPlay playsInline>
         <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4"/>
       </video>
       <div className="home-content">
