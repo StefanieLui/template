@@ -37,6 +37,17 @@ export default async function Home() {
 
   return (
     <>
+  <div className="home mt-5">
+      <video muted loop autoPlay>
+        <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4"/>
+      </video>
+      <div className="home-content">
+        <h1>NATURE</h1>
+        <p>EXPERIENCE</p>
+
+        <button>EXPLORE THE WORLD</button>
+      </div>
+    </div>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
