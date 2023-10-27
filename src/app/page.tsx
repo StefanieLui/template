@@ -66,7 +66,7 @@ export default async function Home() {
 
 {/* <Gallery/> */}
 
-      <Collection/>
+      {/* <Collection/> */}
 
       <CaseStudies caseStudies={caseStudies} />
 
