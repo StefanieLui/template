@@ -57,3 +57,7 @@ h1 {
   padding: 12px 20px;
   cursor: pointer;
 }
+
+.gray {
+  filter: grayscale();
+}
