@@ -20,6 +20,7 @@ import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
+import Collection from '@/components/collection_wide'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -60,6 +61,8 @@ export default async function Home() {
             our staff have been involved in hit and runs.
           </p>
         </FadeIn>
+
+        <Collection/>
       </Container>
 
       <Clients />
