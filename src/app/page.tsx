@@ -64,7 +64,7 @@ export default async function Home() {
         </FadeIn>
       </Container>
 
-<Gallery/>
+{/* <Gallery/> */}
 
       <Collection/>
 
