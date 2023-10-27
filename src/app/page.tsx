@@ -21,6 +21,7 @@ import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import Collection from '@/components/collection_wide'
+import Gallery from '@/components/gallery'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -38,7 +39,7 @@ export default async function Home() {
 
   return (
     <>
-  <div className="home -mt-24">
+  {/* <div className="home -mt-24">
       <video muted loop autoPlay playsInline>
         <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4"/>
       </video>
@@ -49,7 +50,7 @@ export default async function Home() {
 
         <button>EXPLORE THE WORLD</button>
       </div>
-    </div>
+    </div> */}
       <Container className="mt-24 sm:mt-32 md:mt-36">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
@@ -61,10 +62,11 @@ export default async function Home() {
             our staff have been involved in hit and runs.
           </p>
         </FadeIn>
-
-
-
       </Container>
+
+<Gallery/>
+
+      <Collection/>
 
       <CaseStudies caseStudies={caseStudies} />
 
