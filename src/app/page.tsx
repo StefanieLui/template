@@ -20,8 +20,9 @@ import logoPhobiaLight from '@/images/clients/phobia/logo-light.svg'
 import logoUnseal from '@/images/clients/unseal/logo-light.svg'
 import imageLaptop from '@/images/laptop.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
-import Collection from '@/components/collection_wide'
-import Gallery from '@/components/gallery'
+import HeroSection from '@/components/herosection'
+import About from '@/components/about'
+import ServiceGallery from '@/components/servicegallery'
 
 const clients = [
   ['Phobia', logoPhobiaLight],
@@ -34,46 +35,24 @@ const clients = [
   ['North Adventures', logoNorthAdventures],
 ]
 
+
+
 export default async function Home() {
   let caseStudies = (await loadCaseStudies()).slice(0, 3)
 
   return (
     <>
-  <div className="home -mt-24">
-  <video muted loop autoPlay playsInline className="gray">
-        <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4"/>
-      </video>
-      <div className="home-content">
-        <br></br>
-        <h1>Digital Art & Restoration</h1>
-        <p>Specializing in Photography & Fine Art Printing</p>
+    <HeroSection/>
+    <About/>
+    <ServiceGallery/>
 
-        <button>EXPLORE THE WORLD</button>
-      </div>
-    </div>
-      <Container className="mt-24 sm:mt-32 md:mt-36">
-        <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
-            50+ years of award-winning experience.
-          </h1>
-          <p className="mt-6 text-xl text-neutral-600">
-            We are a development studio working at the intersection of design
-            and technology. It’s a really busy intersection though — a lot of
-            our staff have been involved in hit and runs.
-          </p>
-        </FadeIn>
-      </Container>
 
 {/* <Gallery/> */}
 
       {/* <Collection/> */}
 
       <CaseStudies caseStudies={caseStudies} />
-
       <Clients />
-
-    
-
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Phobia', logo: logoPhobiaDark }}
@@ -82,9 +61,7 @@ export default async function Home() {
         finding a way to access the user’s microphone without triggering one of
         those annoying permission dialogs.
       </Testimonial>
-
       <Services />
-
       <ContactSection />
     </>
   )
@@ -119,6 +96,22 @@ function Clients() {
   )
 }
 
+const products = [
+  {
+    id: 1,
+    name: 'Fusion',
+    category: 'UI Kit',
+    href: '#',
+    price: '$49',
+    imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-05-related-product-01.jpg',
+    imageAlt:
+      'Payment application dashboard screenshot with transaction table, financial highlights, and main clients on colorful purple background.',
+  },
+
+
+  // More products...
+]
+
 function CaseStudies({
   caseStudies,
 }: {
@@ -141,35 +134,30 @@ function CaseStudies({
           {caseStudies.map((caseStudy) => (
             <FadeIn key={caseStudy.href} className="flex">
               <article className="relative flex w-full flex-col rounded-3xl p-6 ring-1 ring-neutral-950/5 transition hover:bg-neutral-50 sm:p-8">
-                <h3>
-                  <Link href={caseStudy.href}>
-                    <span className="absolute inset-0 rounded-3xl" />
-                    <Image
-                      src={caseStudy.logo}
-                      alt={caseStudy.client}
-                      className="h-16 w-16"
-                      unoptimized
-                    />
-                  </Link>
-                </h3>
-                <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
-                  <time
-                    dateTime={caseStudy.date.split('-')[0]}
-                    className="font-semibold"
-                  >
-                    {caseStudy.date.split('-')[0]}
-                  </time>
-                  <span className="text-neutral-300" aria-hidden="true">
-                    /
-                  </span>
-                  <span>Case study</span>
-                </p>
-                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
-                  {caseStudy.title}
-                </p>
-                <p className="mt-4 text-base text-neutral-600">
-                  {caseStudy.description}
-                </p>
+           
+            {products.map((product) => (
+              <div key={product.id} className="group relative">
+                <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-gray-100">
+                  <img src={product.imageSrc} alt={product.imageAlt} className="object-cover object-center" />
+                  <div className="flex items-end p-4 opacity-0 group-hover:opacity-100" aria-hidden="true">
+                    <div className="w-full rounded-md bg-white bg-opacity-75 px-4 py-2 text-center text-sm font-medium text-gray-900 backdrop-blur backdrop-filter">
+                      View Product
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-between space-x-8 text-base font-medium text-gray-900">
+                  <h3>
+                    <a href="#">
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {product.name}
+                    </a>
+                  </h3>
+                  <p>{product.price}</p>
+                </div>
+                <p className="mt-1 text-sm text-gray-500">{product.category}</p>
+              </div>
+            ))}
+       
               </article>
             </FadeIn>
           ))}
